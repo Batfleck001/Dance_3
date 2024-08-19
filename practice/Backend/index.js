@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 
 app.use(cors())
-
+app.use(express.static('dist'))
 
 let notes = [
     {
@@ -91,6 +91,11 @@ app.post('/api/notes',(req,res)=>{
 
 
 
-const port = 3001
-app.listen(port, () => {
-console.log(`Server @ ${port}`)})
+// const port = 3001
+// app.listen(port, () => {
+// console.log(`Server @ ${port}`)})
+
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
